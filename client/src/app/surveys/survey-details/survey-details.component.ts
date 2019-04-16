@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 import { Survey } from 'src/app/models/survey';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-survey-details',
@@ -11,7 +12,7 @@ import { Survey } from 'src/app/models/survey';
   styleUrls: ['./survey-details.component.css']
 })
 export class SurveyDetailsComponent implements OnInit {
-
+  user: User;
   title: string;
   survey: Survey;
 
@@ -25,6 +26,9 @@ export class SurveyDetailsComponent implements OnInit {
   ngOnInit() {
     this.title = this.activatedRoute.snapshot.data.title;
     this.survey = new Survey();
+   // this.user = new User();
+    this.user = JSON.parse(localStorage.getItem('user'));
+    console.log(this.user.username);
 
     // fills in the contact._id property from the url
     this.activatedRoute.params.subscribe(params => {
@@ -39,6 +43,7 @@ export class SurveyDetailsComponent implements OnInit {
 
   getSurvey(survey: Survey): void {
     this.surveyListService.getSurvey(survey).subscribe(data => {
+
       this.survey = data.survey;
     });
   }
@@ -58,6 +63,7 @@ export class SurveyDetailsComponent implements OnInit {
         break;
       case 'Edit Survey':
         this.surveyListService.editSurvey(this.survey).subscribe(data => {
+          console.log(data.survey);
           if (data.success) {
             this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});
             this.router.navigate(['/surveys/survey-list']);

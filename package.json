@@ -33,7 +33,7 @@
   },
   "description": "project",
   "main": "server.js",
-  "author": "Sidharth Choudhary",
+  "author": "Sidharth Choudhary on behalf of team CentIndies",
   "license": "ISC",
   "devDependencies": {
     "@types/body-parser": "^1.17.0",
