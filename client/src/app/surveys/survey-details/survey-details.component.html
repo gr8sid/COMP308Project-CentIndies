@@ -1,0 +1,101 @@
+<p>
+  survey-details works!
+</p>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+
+    <div *ngIf="title != 'Survey Details'">
+        <h1>{{ title }}</h1>
+        <form class="form" (submit)="onSurveyDetailsSubmit()">
+
+                <div class="form-group">
+                    <label for="SurveyNameTextField">Survey Name</label>
+                    <input type="text" class="form-control"
+                    id="SurveyNameTextField"
+                    placeholder="Enter Survey Name"
+                    name="surveyName"
+                    [(ngModel)]="survey.surveyName"
+                    value="{{ survey.surveyName }}"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="QuestionTextField">Question</label>
+                    <input type="text" class="form-control"
+                    id="QuestionTextField"
+                    placeholder="Enter Survey Question"
+                    name="question"
+                    [(ngModel)]="survey.question"
+                    value="{{ survey.question }}"
+                    required>
+                </div>
+
+                <div class="form-group">
+                  <label for="OwnerTextField">Survey OWNER</label>
+                  <input type="text" class="form-control"
+                  id="OwnerTextField"
+                  placeholder="Enter Owner Description"
+                  name="owner"
+                  [(ngModel)]="survey.owner"
+                  value="{{ survey.owner }}"
+                  required>
+              </div>
+
+              <div class="form-group">
+                <label for="Opt1TextField">Option 1:</label>
+                <input type="text" class="form-control"
+                id="Opt1TextField"
+                placeholder="Enter Option 1"
+                name="opt1"
+                [(ngModel)]="survey.option1"
+                value="{{ survey.option1 }}"
+                required>
+            </div>
+
+           <div class="form-group">
+                <label for="Opt2TextField">Option 2:</label>
+                <input type="text" class="form-control"
+                id="Opt2TextField"
+                placeholder="Enter Option 2"
+                name="opt2"
+                [(ngModel)]="survey.option2"
+                value="{{ survey.option2 }}"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="Opt3TextField">Option 3:</label>
+              <input type="text" class="form-control"
+              id="Opt3TextField"
+              placeholder="Enter Option 3"
+              name="opt3"
+              [(ngModel)]="survey.option3"
+              value="{{ survey.option3 }}"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="Opt4TextField">Option 4:</label>
+            <input type="text" class="form-control"
+            id="Opt4TextField"
+            placeholder="Enter Option 4"
+            name="opt4"
+            [(ngModel)]="survey.option4"
+            value="{{ survey.option4 }}"
+            required>
+        </div>
+                <button type="submit" class="btn btn-primary">
+                <i class="fas fa-edit"></i> {{ title }}</button>
+                <a routerLink="/surveys/survey-list" class="btn btn-warning">
+                    <i class="fas fa-undo"></i> Cancel</a>
+            </form>
+    </div>
+
+
+<div *ngIf="title == 'Survey Details'">
+        <a routerLink="/surveys/survey-list" class="btn btn-warning" style="float:left; margin-top:10px; font-size:25px">
+            <i class="fas fa-undo"></i> GO BACK</a>
+            </div>
+          </div>
+        </div>
+    </div>

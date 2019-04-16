@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%= title %></title>
+    <!-- CSS Section-->
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="/Content/app.css" />
+    <style>
+
+.glow {
+  font-size: 40px;
+   color: #CEF0D4; 
+   font-size: 40px; 
+   font-weight: normal; 
+   line-height: 48px;
+   margin-top:10px; 
+   top:10px;
+   left:20px
+   text-shadow: 1px 1px 2px black;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+ font-family: 'Billabong'
+}
+
+@-webkit-keyframes glow {
+ 
+
+  from {
+    text-shadow: 0 0 10px #FF9900, 0 0 20px #fff, 0 0 30px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 50px #FF9900, 0 0 50px #FF9900;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #FF9900, 0 0 60px #FF9900, 0 0 60px #FF9900, 0 0 50px #FF9900;
+  }
+}
+</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="Content/app.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style type = "text/css">
+a:hover { text-shadow: 0 0 5px #ff0000; }
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #111;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: red;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+}
+
+</style>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a href="/home">
+      
+<img 
+    src="/public/assests/images/logo-trans.png" 
+    alt="no img found"
+    height="87px"
+    width="100px" /></a>
+
+    <a class="navbar-brand" href="/home" style="position:absolute; left:120px"><div class="glow">SIDHARTH CHOUDHARY</div></a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          
+        <% if (title == "Home") { %>
+        <li class="nav-item active">
+          <% } else { %>
+        <li class="nav-item">
+          <% } %>
+
+          <a class="nav-link" href="/home"><i class="fa fa-lg fa-home"></i> MYYYYHome <span class="sr-only">(current)</span></a>
+        </li>
+
+
+        <% if (title == "About Me") { %>
+        <li class="nav-item active">
+          <% } else { %>
+        <li class="nav-item">
+          <% } %>
+          <a class="nav-link" href="/aboutme"><i class="fa fa-lg fa-info"></i> About Me</a>
+        </li>
+
+
+        <!-- <% if (title == "Projects") { %>
+        <li class="nav-item active">
+          <% } else { %>
+        <li class="nav-item">
+          <% } %>
+          <a class="nav-link" href="/projects"><i class="fa fa-lg fa-briefcase"></i> Projects</a>
+        </li> -->
+
+
+        <% if (title == "Services") { %>
+        <li class="nav-item active">
+          <% } else { %>
+        <li class="nav-item">
+          <% } %>
+          <a class="nav-link" href="/services"><i class="fa fa-lg fa-cog"></i> Services</a>
+        </li>
+
+
+        <% if (title == "Contact Me") { %>
+        <li class="nav-item active">
+          <% } else { %>
+        <li class="nav-item">
+          <% } %>
+          <a class="nav-link" href="/contact"><i class="fa fa-lg fa-phone"></i>  Contact Me</a>
+        </li>
+
+        <% if (title == "Projects") { %>
+        <li class="nav-item active">
+          <% } else { %>
+        <li class="nav-item">
+          <% } %>
+          <a class="nav-link" href="/projects"><i class="fa fa-lg fa-star"></i>  Projects</a>
+        </li>
+        
+          <% if(typeof displayName == 'string' && displayName) { %>
+            <li class="navbar-text"><i class="fas fa-lg fa-user"></i> 
+              Welcome, <%= displayName %></li>
+            <li class="nav-item"><a href="/logout" class="nav-link">
+              <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a></li>
+          <% } else { %>
+            <li class="nav-item"><a href="/login" class="nav-link">
+              <i class="fas fa-lg fa-sign-in-alt"></i> Login</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>

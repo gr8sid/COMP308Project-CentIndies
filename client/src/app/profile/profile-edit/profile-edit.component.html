@@ -1,0 +1,47 @@
+<!-- Content for the Edit Page -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+
+          <h1>{{ title }}</h1>
+          <form class="form" (submit)="onProfileEdit()">
+
+                  <div class="form-group">
+                      <label for="UserNameTextField">User Name</label>
+                      <input type="text" class="form-control"
+                      id="UserNameTextField"
+                      placeholder="Enter User Name"
+                      name="userName"
+                      [(ngModel)]="user.username"
+                      value="{{ user.username }}"
+                      required>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="DisplayNameTextField">Display Name</label>
+                      <input type="text" class="form-control"
+                      id="DisplayNameTextField"
+                      placeholder="Enter Display Name"
+                      name="displayName"
+                      [(ngModel)]="user.displayName"
+                      value="{{ user.displayName }}"
+                      required>
+                  </div>
+                  <div class="form-group">
+                      <label for="EmailTextField">Email-Id</label>
+                      <input type="text" class="form-control"
+                      id="EmailTextField"
+                      placeholder="Enter Email-Id"
+                      name="emailID"
+                      [(ngModel)]="user.email"
+                      value="{{ user.email }}"
+                      required>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-edit"></i> {{ title }}</button>
+                  <a routerLink="/profile" class="btn btn-warning">
+                      <i class="fas fa-undo"></i> Cancel</a>
+              </form>
+      </div>
+

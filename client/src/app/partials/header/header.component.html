@@ -1,0 +1,100 @@
+<head>
+  <style>
+
+    a:hover { text-shadow: 0 0 5px #ff0000  ; }
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  padding-top: 20px;
+}
+
+  .glow {
+     color: #CEF0D4;
+     font-size: 20px;
+     font-weight: normal;
+     line-height: 48px;
+     top:5px;
+     left:25px;
+     text-shadow: 1px 1px 2px black;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+   font-family: 'Billabong'
+  }
+
+  @-webkit-keyframes glow {
+
+
+    from {
+      text-shadow: 0 0 5px #FF9900, 0 0 10px #fff, 0 0 15px #FF9900, 0 0 20px #FF9900, 0 0 25px #FF9900, 0 0 25px #FF9900, 0 0 25px #FF9900;
+    }
+
+    to {
+      text-shadow: 0 0 15px #fff, 0 0 20px #fff, 0 0 25px #fff, 0 0 30px #FF9900, 0 0 40px #FF9900, 0 0 25px #FF9900, 0 0 25px #FF9900;
+    }
+  }
+  </style>
+  </head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+ <a routerLink="home">
+    </a>
+
+    <img src="assets/images/logo.PNG" height="100px; width:100px" width="fa-rotate-90`0px"/>
+    <a class="navbar-brand" routerLink="home" style="position:absolute; left:112px">
+      <div class="glow"></div></a>
+
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+
+
+
+      <li class="nav-item">
+        <a style="font-size:20px" class="nav-link" routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+          ><i class="fas fa-lg fa-igloo"></i> Home </a>
+      </li>
+      <li class="nav-item active">
+        <li class="nav-item">
+          <a style="font-size:20px" class="nav-link" routerLink="about"><i class="fa fa-lg fa-info"></i> About </a>
+        </li>
+
+        <li class="nav-item active">
+          <li class="nav-item">
+            <a style="font-size:20px" class="nav-link" routerLink="surveys"><i class="fa fa-lg fa-star"></i>  Surveys</a>
+          </li>
+
+
+        <li class="nav-item">
+            <a style="font-size:20px" *ngIf="isLoggedIn()" class="nav-link" routerLink="profile"><i class="fas fa-lg fa-user"></i>
+              Edit Profile</a></li>
+        <li style="font-size:20px" *ngIf="isLoggedIn()" class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline"><i class="fas fa-lg fa-user"></i>
+          Welcome, {{ user.displayName }}</li>
+
+        <li style="font-size:20px" *ngIf="isLoggedIn()" class="nav-item"><a (click)="onLogoutClick()" routerLink="logout" class="nav-link">
+          <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a></li>
+
+        <li style="font-size:20px" *ngIf="!isLoggedIn()" class="nav-item"><a routerLink="login" class="nav-link">
+          <i class="fas fa-lg fa-sign-in-alt"></i> Login</a></li>
+
+    </ul>
+  </div>
+</nav>
