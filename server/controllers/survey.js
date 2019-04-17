@@ -4,6 +4,7 @@ let jwt = require('jsonwebtoken');
 
 // create a reference to the db schema
 let surveyModel = require('../models/survey');
+let answerModel = require('../models/answer');
 
 module.exports.displaySurveyList = (req, res, next) =>{
     surveyModel.find((err, surveyList) => {
@@ -42,6 +43,9 @@ module.exports.processAddPage = (req, res, next) => {
         }
     });
 }
+
+
+
 
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;
@@ -95,5 +99,33 @@ module.exports.performDelete = (req, res, next) => {
            res.json({success: true, msg: 'Successfully Deleted Survey'});
         }
     });
+
+
+
+
+
+    // SAVING ANSWER
+
+    module.exports.displayAnswerPage = (req, res, next) => {
+        res.json({success: true, msg: 'Successfully Displayed Answer Add Page'});
+     }
+
+    module.exports.processAnswerPage = (req, res, next) => {
+
+        let newAnswer = answerModel({
+            "question": req.body.question,
+            "answer": req.body.answer
+        });
+    
+        answerModel.create(newAnswer, (err, answerModel) => {
+            if(err) {
+                console.log(err);
+                res.end(err);
+            }
+            else {
+                res.json({success: true, msg: 'Successfully Saved Answer to DB!'});
+            }
+        });
+    }
 }
 

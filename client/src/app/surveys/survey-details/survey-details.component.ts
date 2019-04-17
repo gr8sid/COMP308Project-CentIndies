@@ -5,6 +5,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 
 import { Survey } from 'src/app/models/survey';
 import { User } from 'src/app/models/user';
+import { Answer } from 'src/app/models/answer';
 
 @Component({
   selector: 'app-survey-details',
@@ -15,6 +16,7 @@ export class SurveyDetailsComponent implements OnInit {
   user: User;
   title: string;
   survey: Survey;
+  answer: Answer;
 
   constructor(
     private surveyListService: SurveyListService,
@@ -35,7 +37,7 @@ export class SurveyDetailsComponent implements OnInit {
       this.survey._id = params.id;
     });
 
-    if (this.title === 'Edit Survey' || this.title === 'Survey Details' ) {
+    if (this.title === 'Edit Survey' || this.title === 'Survey Answer Details' ) {
       this.getSurvey(this.survey);
     }
 
@@ -73,18 +75,25 @@ export class SurveyDetailsComponent implements OnInit {
           }
         });
         break;
-        case 'Survey Details':
-        this.surveyListService.surveyDetails(this.survey).subscribe(data => {
+    }
+  }
+
+
+  onAnswerSubmit(): void {
+    switch (this.title) {
+      case 'Survey Answer Details':
+        this.surveyListService.addAnswer(this.answer).subscribe(data => {
           if (data.success) {
             this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});
-            this.router.navigate(['/surveys/survey-list']);
+            this.router.navigate(['/surveys/take-survey']);
           } else {
-            this.flashMessage.show('Survey Details Failed', {cssClass: 'alert-danger', timeOut: 3000});
-            this.router.navigate(['/surveys/survey-list']);
+            this.flashMessage.show('Saving Answer  Failed', {cssClass: 'alert-danger', timeOut: 3000});
+            this.router.navigate(['/surveys/take-survey']);
           }
         });
         break;
     }
+
   }
 
 }

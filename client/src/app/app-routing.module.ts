@@ -35,12 +35,16 @@ const routes: Routes = [
 
 
   {path: 'surveys', component: SurveyComponent, data: {title: 'Survey'}},
-  {path: 'surveys/survey-list', component: SurveyListComponent, data: {title: 'Survey List'}, canActivate: [AuthGuard]},
+  {path: 'surveys/survey-list', component: SurveyListComponent, data: {title: 'Add to Survey List'}, canActivate: [AuthGuard]},
   {path: 'surveys/survey-list/add', component: SurveyDetailsComponent, data: {title: 'Add Survey'}, canActivate: [AuthGuard]},
   {path: 'surveys/survey-list/edit/:id', component: SurveyDetailsComponent, data: {title: 'Edit Survey'}, canActivate: [AuthGuard]},
 // tslint:disable-next-line: max-line-length
-  {path: 'surveys/survey-list/details/:id', component: SurveyDetailsComponent, data: {title: 'Survey Details'}, canActivate: [AuthGuard]},
-  {path: 'surveys/survey-list/delete/:id', component: SurveyDeleteComponent, data: {title: 'Delete Survey'}, canActivate: [AuthGuard]},
+ {path: 'surveys/survey-list/delete/:id', component: SurveyDeleteComponent, data: {title: 'Delete Survey'}, canActivate: [AuthGuard]},
+
+ {path: 'surveys/take-survey', component: SurveyListComponent, data: {title: 'Take Survey'}, canActivate: [AuthGuard]},
+  {path: 'surveys/take-survey/answer', component: SurveyDetailsComponent, data: {title: 'Save Answer'}, canActivate: [AuthGuard]},
+// tslint:disable-next-line: max-line-length
+  {path: 'surveys/take-survey/answer/:id', component: SurveyDetailsComponent, data: {title: 'Survey Answer Details'}, canActivate: [AuthGuard]},
 
 
 

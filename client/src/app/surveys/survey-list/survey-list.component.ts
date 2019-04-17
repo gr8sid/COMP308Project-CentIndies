@@ -1,7 +1,7 @@
 import { SurveyListService } from './../../services/survey-list.service';
 import { Survey } from './../../models/survey';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
@@ -11,17 +11,18 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class SurveyListComponent implements OnInit {
   surveys: Survey[];
-
+  title: string;
   constructor(
     private surveyListService: SurveyListService,
     private flashMessages: FlashMessagesService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
     )
     { }
 
   ngOnInit() {
     this.surveys = new Array<Survey>();
-
+    this.title = this.activatedRoute.snapshot.data.title;
     this.displaySurveyList();
   }
 

@@ -33,6 +33,7 @@ mongoDB.once('open', ()=> {
 let indexRouter = require('../routes/index');
 let profileRouter = require('../routes/profile');
 let surveyRouter = require('../routes/survey');
+let takeSurveyRouter = require('../routes/survey');
 
 let app = express();
 
@@ -101,6 +102,7 @@ passport.use(strategy);
 app.use('/api', indexRouter);
 app.use('/api/profile-edit',profileRouter);
 app.use('/api/survey-list', surveyRouter);
+app.use('/api/take-survey', takeSurveyRouter);
 
 app.get('*', (req, res) => {
   res.sendfile(path.join(__dirname, '../../public/index.html'));

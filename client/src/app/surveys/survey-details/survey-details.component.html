@@ -3,7 +3,7 @@
   <div class="row">
       <div class="col-md-offset-3 col-md-6">
 
-    <div *ngIf="title != 'Survey Details'">
+    <div *ngIf="title != 'Survey Answer Details'">
         <h1>{{ title }}</h1>
         <form class="form" (submit)="onSurveyDetailsSubmit()">
 
@@ -105,9 +105,9 @@
     </div>
 
 
-<div *ngIf="title == 'Survey Details'">
+<div *ngIf="title == 'Survey Answer Details'">
 
-
+  <form class="form" (submit)="onAnswerSubmit()">
             <div class="form-group">
               <label for="QuestionTextField">Survey Question</label>
               <input type="text" class="form-control"
@@ -157,8 +157,11 @@
                     </label>
             </div>
         </div>
-        <a routerLink="/surveys/survey-list" class="btn btn-warning" style="float:left; margin-top:10px; font-size:25px">
+        <button type="submit" class="btn btn-primary" style="margin-top:10px; font-size:25px">
+          <i class="fas fa-edit"></i> Submit Survey</button>
+        <a routerLink="/surveys/take-survey" class="btn btn-warning" style="margin-left: 20px; margin-top:10px; font-size:25px">
           <i class="fas fa-undo"></i> GO BACK</a>
+          </form>
 </div>
 
 

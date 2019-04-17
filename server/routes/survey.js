@@ -24,6 +24,10 @@ router.get('/add',    surveyController.displayAddPage);
 /* POST Route for processing the Add page */
 router.post('/add',    surveyController.processAddPage);
 
+//router.get('/saveanswer',   surveyController.displayAnswerPage);
+
+// router.post('/saveanswer',   surveyController.processAnswerPage);
+
 /* GET request - display the Edit page */
 router.get('/edit/:id',    surveyController.displayEditPage);
 

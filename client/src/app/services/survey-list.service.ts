@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 
 import { Survey } from '../models/survey';
 import { User } from '../models/user';
+import { Answer } from '../models/answer';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +18,7 @@ export class SurveyListService {
   //private endpoint = 'https://comp308-w2019-lesson10a.herokuapp.com/api/contact-list/';
 
   private endpoint = 'http://localhost:3000/api/survey-list/';
+  private endpoint2 = 'http://localhost:3000/api/take-survey/';
 
  // private endpoint = 'https://expres-portfolio-meanstack-sid.herokuapp.com/api/survey-list/';
 
@@ -71,5 +73,11 @@ export class SurveyListService {
   public loadToken() {
     const token = localStorage.getItem('id_token');
     this.authToken = token;
+  }
+
+  public addAnswer(ans: Answer): Observable<any> {
+    this.loadToken();
+    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
+    return this.http.post<any>(this.endpoint2 + 'saveanswer', ans, this.httpOptions);
   }
 }

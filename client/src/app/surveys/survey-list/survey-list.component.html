@@ -1,12 +1,10 @@
-<p>
-  survey-list works!
-</p>
+
 <div class="container">
   <div class="row">
       <div class="col-md-offset-3 col-md-11">
           <h1 class="display-4" style="color: #CEF0D4; font-family: 'courier', cursive; font-size: 60px; font-weight: normal; line-height: 48px; margin-top:10px; margin-left:200px;  text-align: left; text-shadow: 1px 1px 2px black;"><strong>
           Our SURVEY  List </strong></h1>
-          <a class="btn btn-primary" routerLink="add" role="button">
+          <a *ngIf="title == 'Add to Survey List'" class="btn btn-primary" routerLink="add" role="button">
           <i class="fas fa-plus-circle"></i> Add a Survey</a>
           <br><br>
           <table class="table table-bordered table-striped table-hover">
@@ -15,8 +13,7 @@
                   <th class="text-center">Survey Name</th>
                   <th class="text-center">Question</th>
                   <th class="text-center"></th>
-                  <th class="text-center"></th>
-                  <th class="text-center"></th>
+                  <th *ngIf="title == 'Add to Survey List'" class="text-center"></th>
               </tr>
 
               <!-- Repeatable Template Row -->
@@ -24,20 +21,21 @@
                       <td class="text-center">{{survey.surveyName}}</td>
                       <td class="text-center">{{survey.question}}</td>
 
-                      <td  class="text-center" style="width:100px">
+
+                      <td  *ngIf="title == 'Add to Survey List'" class="text-center" style="width:100px">
                       <a routerLink="edit/{{survey._id}}" class="btn btn-primary">
                         <i class="fas fa-pencil-alt"></i> Edit</a>
                       </td>
 
 
-                      <td class="text-center" style="width:150px">
+                      <td *ngIf="title == 'Add to Survey List'" class="text-center" style="width:150px">
                               <a routerLink="delete/{{survey._id}}" (click)="onDeleteClick()"
                               class="btn btn-danger" ><i class="fas fa-trash-alt"></i> Delete</a>
                               </td>
 
-                              <td class="text-center" style="width:160px">
-                                  <a routerLink="details/{{survey._id}}" class="btn btn-secondary">
-                                    <i class="fas fa-info-circle"></i> View Details</a>
+                              <td *ngIf="title == 'Take Survey'" class="text-center" style="width:160px">
+                                  <a routerLink="answer/{{survey._id}}" class="btn btn-secondary">
+                                    <i class="fas fa-info-circle"></i> Take Survey </a>
                                   </td>
                   </tr>
           </table>
