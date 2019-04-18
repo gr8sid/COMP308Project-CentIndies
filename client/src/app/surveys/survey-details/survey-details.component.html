@@ -126,7 +126,7 @@
               <label class="radio">
               <input type="radio"
               name="answer"
-              [(ngModel)]="survey.option1"
+              [(ngModel)]="answer.answer"
               value="{{ survey.option1 }}"
               >
               {{ survey.option1 }}
@@ -134,7 +134,7 @@
               <label class="radio">
                 <input type="radio"
                 name="answer"
-                [(ngModel)]="survey.option2"
+                [(ngModel)]="answer.answer"
                 value="{{ survey.option2 }}"
                 >
                 {{ survey.option2 }}
@@ -142,7 +142,7 @@
                 <label class="radio">
                   <input type="radio"
                   name="answer"
-                  [(ngModel)]="survey.option3"
+                  [(ngModel)]="answer.answer"
                   value="{{ survey.option3 }}"
                   >
                   {{ survey.option3 }}
@@ -150,11 +150,12 @@
                   <label class="radio">
                     <input type="radio"
                     name="answer"
-                    [(ngModel)]="survey.option4"
+                    [(ngModel)]="answer.answer"
                     value="{{ survey.option4 }}"
                     >
                     {{ survey.option4 }}
-                    </label>
+                    </label><br><br>
+                    <label> ANSWER: -> {{ answer.answer }}</label>
             </div>
         </div>
         <button type="submit" class="btn btn-primary" style="margin-top:10px; font-size:25px">

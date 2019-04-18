@@ -33,7 +33,7 @@ mongoDB.once('open', ()=> {
 let indexRouter = require('../routes/index');
 let profileRouter = require('../routes/profile');
 let surveyRouter = require('../routes/survey');
-let takeSurveyRouter = require('../routes/survey');
+let takeSurveyRouter = require('../routes/answer');
 
 let app = express();
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyListService } from 'src/app/services/survey-list.service';
+import { AnswerService } from 'src/app/services/answer.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
@@ -20,6 +21,7 @@ export class SurveyDetailsComponent implements OnInit {
 
   constructor(
     private surveyListService: SurveyListService,
+    private answerService: AnswerService,
     private flashMessage: FlashMessagesService,
     private router: Router,
     private activatedRoute: ActivatedRoute
@@ -28,11 +30,12 @@ export class SurveyDetailsComponent implements OnInit {
   ngOnInit() {
     this.title = this.activatedRoute.snapshot.data.title;
     this.survey = new Survey();
+    this.answer = new Answer();
    // this.user = new User();
     this.user = JSON.parse(localStorage.getItem('user'));
     console.log(this.user.username);
 
-    // fills in the contact._id property from the url
+    // fills in the survey._id property from the url
     this.activatedRoute.params.subscribe(params => {
       this.survey._id = params.id;
     });
@@ -82,7 +85,7 @@ export class SurveyDetailsComponent implements OnInit {
   onAnswerSubmit(): void {
     switch (this.title) {
       case 'Survey Answer Details':
-        this.surveyListService.addAnswer(this.answer).subscribe(data => {
+        this.answerService.addAnswer(this.answer, this.survey).subscribe(data => {
           if (data.success) {
             this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});
             this.router.navigate(['/surveys/take-survey']);
