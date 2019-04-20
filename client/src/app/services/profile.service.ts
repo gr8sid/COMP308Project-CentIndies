@@ -45,19 +45,19 @@ export class ProfileService {
   public getUser(user: User): Observable<any> {
     this.loadToken();
     this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
-    return this.http.get<any>(this.endpoint + 'edit/' + user._id, this.httpOptions);
+    return this.http.get<any>(this.endpoint + 'edit/' + user.id, this.httpOptions);
   }
 
   public editUser(user: User): Observable<any> {
     this.loadToken();
     this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
-    return this.http.post<any>(this.endpoint + 'edit/' + user._id, user, this.httpOptions);
+    return this.http.post<any>(this.endpoint + 'edit/' + user.id, user, this.httpOptions);
   }
 
   public userDetails(user: User): Observable<any> {
     this.loadToken();
     this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
-    return this.http.post<any>(this.endpoint + 'details/' + user._id, user, this.httpOptions);
+    return this.http.post<any>(this.endpoint + 'details/' + user.id, user, this.httpOptions);
   }
 
 
