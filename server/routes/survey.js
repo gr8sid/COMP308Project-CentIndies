@@ -17,6 +17,7 @@ function requireAuth(req, res, next) {
 /* GET Contact List page - READ Operation */
 router.get('/',    surveyController.displaySurveyList);
 
+router.get('/:username',    surveyController.displayMySurveyList);
  //router.get('/survey-title',    surveyController.displayAddSurveyTitle);
 // router.post('/surveyTitle/add',    surveyController.addSurveyTitle);
 

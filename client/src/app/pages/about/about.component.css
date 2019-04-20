@@ -2,6 +2,7 @@ body{
   background-image: url("../../../assets/images/bg.jpg");
   background-size: cover;
   background-repeat: repeat;
+  height:800px;
  }
 
  .jumbotron{

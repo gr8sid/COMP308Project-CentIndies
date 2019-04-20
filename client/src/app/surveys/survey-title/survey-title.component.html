@@ -1,10 +1,13 @@
-
+<body>  <br>
+  <br>
+    <div class="container">
+        <div class="jumbotron">
 <div class="container surveyList">
   <div class="row">
     <div *ngIf="title == 'Survey Title'" class="col-lg-12">
         <h1>Survey List</h1>
       <br />
-      <a style="font-size:25px" class="btn btn-primary" routerLink="/surveys/survey-list" role="button">
+      <a style="font-size:18px" class="btn btn-primary" routerLink="/surveys/survey-list/add" role="button">
         <i class="fas fa-plus-circle"></i> Add a Survey</a
       >
 
@@ -20,7 +23,7 @@
             <div *ngIf="isMySurvey" class="col-lg-3 buttons"></div>
 
             <div *ngIf="!isMySurvey" class="col-lg-3 buttons">
-              <a style="font-size:20px" routerLink="/surveys" class="btn btn-primary">
+              <a style="font-size:17px" routerLink="/surveys" class="btn btn-primary">
                 Participate</a
               > </div>
           </div>
@@ -30,3 +33,6 @@
 </div>
   </div>
 </div>
+</div>
+</div>
+</body>

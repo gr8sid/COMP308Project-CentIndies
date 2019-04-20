@@ -43,6 +43,7 @@ const routes: Routes = [
 
   {path: 'surveys/survey-list', component: SurveyListComponent, data: {title: 'Add to Survey List'}},
   {path: 'surveys/survey-list/add', component: SurveyDetailsComponent, data: {title: 'Add Survey'}, canActivate: [AuthGuard]},
+  //{path: 'surveys/survey-list/:username', component: SurveyDetailsComponent, data: {title: 'User Survey'}, canActivate: [AuthGuard]},
   {path: 'surveys/survey-list/edit/:id', component: SurveyDetailsComponent, data: {title: 'Edit Survey'}, canActivate: [AuthGuard]},
 // tslint:disable-next-line: max-line-length
  {path: 'surveys/survey-list/delete/:id', component: SurveyDeleteComponent, data: {title: 'Delete Survey'}, canActivate: [AuthGuard]},
@@ -54,7 +55,7 @@ const routes: Routes = [
 
 
   {path: 'surveys/survey-list', component: SurveyListComponent, data: {title: 'Active Survey'}},
-  {path: 'surveys/survey-list/:username', component: SurveyListComponent, data: {title: 'My Survey'}},
+  {path: 'surveys/survey-list/:username', component: SurveyListComponent, data: {title: 'My Survey List'}},
   {path: 'surveys/survey-answers', component: SurveyAnswersComponent, data: {title: 'Survey Answers'}},
 
 

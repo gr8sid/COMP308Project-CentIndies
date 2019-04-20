@@ -19,6 +19,9 @@ export class SurveyDetailsComponent implements OnInit {
   currentUser: string;
   survey: Survey;
   answer: Answer;
+  isMySurvey = false;
+  username: string;
+
 
   constructor(
     private surveyListService: SurveyListService,

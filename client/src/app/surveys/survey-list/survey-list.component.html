@@ -1,3 +1,7 @@
+<body>  <br>
+  <br>
+    <div class="container">
+        <div class="jumbotron">
 <div class="container">
     <div class="row">
         <div class="col-md-offset-3 col-md-11">
@@ -22,13 +26,13 @@
 
 
                         <td  *ngIf="title == 'Add to Survey List'" class="text-center" style="width:100px">
-                        <a routerLink="edit/{{survey._id}}" class="btn btn-primary">
+                        <a *ngIf="survey.owner == username" routerLink="edit/{{survey._id}}" class="btn btn-primary">
                           <i class="fas fa-pencil-alt"></i> Edit</a>
                         </td>
 
 
                         <td *ngIf="title == 'Add to Survey List'" class="text-center" style="width:150px">
-                                <a routerLink="delete/{{survey._id}}" (click)="onDeleteClick()"
+                                <a *ngIf="survey.owner == username" routerLink="delete/{{survey._id}}" (click)="onDeleteClick()"
                                 class="btn btn-danger" ><i class="fas fa-trash-alt"></i> Delete</a>
                                 </td>
 
@@ -42,3 +46,6 @@
         </div>
     </div>
   </div>
+</div>
+</div>
+</body>

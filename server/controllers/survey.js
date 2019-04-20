@@ -21,6 +21,24 @@ module.exports.displaySurveyList = (req, res, next) =>{
     });
 }
 
+
+
+module.exports.displayMySurveyList = (req, res, next) =>{
+
+   let username = req.params.username;
+
+    surveyModel.find({ owner: { $in: username } }, (err, surveyList) => {
+        if(err) {
+            console.log("ERROR ----> "+ err.msg);
+            return console.error(err);
+        }
+        else {
+            console.log("Username ----> "+ username + "---" +surveyList);
+           res.json({success: true, msg: 'My Survey List Displayed Successfully!!!', surveyList: surveyList, user: req.user});
+        }
+    });
+}
+
 module.exports.displayAddPage = (req, res, next) => {
    res.json({success: true, msg: 'Successfully Displayed PROJECT Add Page'});
 }
