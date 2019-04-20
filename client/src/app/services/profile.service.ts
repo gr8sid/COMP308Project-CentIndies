@@ -17,7 +17,7 @@ export class ProfileService {
 
   //private endpoint = 'https://comp308-w2019-lesson10a.herokuapp.com/api/contact-list/';
 
-  private endpoint = 'http://localhost:3000/api/profile-edit/';
+  private endpoint = 'https://centindies-comp308-project.herokuapp.com/api/profile-edit/';
 
  // private endpoint = 'https://expres-portfolio-meanstack-sid.herokuapp.com/api/project-list/';
 

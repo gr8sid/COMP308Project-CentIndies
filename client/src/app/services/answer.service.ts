@@ -15,8 +15,8 @@ export class AnswerService {
 
   //private endpoint = 'https://comp308-w2019-lesson10a.herokuapp.com/api/contact-list/';
 
-  private endpoint = 'http://localhost:3000/api/take-survey/';
-  private endpoint2 = 'http://localhost:3000/api/take-survey/answer-list/';
+  private endpoint = 'https://centindies-comp308-project.herokuapp.com/api/take-survey/';
+  private endpoint2 = 'https://centindies-comp308-project.herokuapp.com/api/take-survey/answer-list/';
 
  // private endpoint = 'https://expres-portfolio-meanstack-sid.herokuapp.com/api/survey-list/';
 
