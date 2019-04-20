@@ -1,3 +1,4 @@
+
 import { User } from 'src/app/models/user';
 import { Component, OnInit } from '@angular/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -26,34 +27,38 @@ export class ProfileEditComponent implements OnInit {
   ngOnInit() {
     this.title = this.activatedRoute.snapshot.data.title;
     this.user = new User();
+    this.user = JSON.parse(localStorage.getItem('user'));
+   // console.log("Useer ID ->>>" + this.user.id);
 
     // fills in the contact._id property from the url
-    this.activatedRoute.params.subscribe(params => {
-      this.user.username = params.username;
-    });
-    console.log(this.title);
-    if (this.title === 'Edit Profile') {
-      this.getUser(this.user);
-      console.log(this.user.username);
-    }
+    // this.activatedRoute.params.subscribe(params => {
+    //   this.user._id = params.id;
+    //   console.log("Useer IDD ->>>" + this.user._id);
+    // });
+
+    console.log(this.user);
+    // if (this.title === 'Edit Profile') {
+    //   this.getUser(this.user);
+    // }
 
   }
 
-  getUser(user: User): void {
-    this.profileSevice.getUser(user).subscribe(data => {
-      console.log("NEWWWWW DATA " + data);
-      this.user = data.user;
-    });
-  }
+  // getUser(user: User): void {
+  //   this.profileSevice.getUser(user).subscribe(data => {
+  //     console.log("NEWWWWW DATA " + data);
+  //     this.user = data.user;
+  //   });
+  // }
 
   onProfileEdit(): void {
         this.profileSevice.editUser(this.user).subscribe(data => {
           if (data.success) {
+            console.log("DATAAAAAA_>>"+data);
             this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});
-            this.router.navigate(['/profile/profile-edit']);
+            this.router.navigate(['/profile']);
           } else {
             this.flashMessage.show('Edit Project Failed', {cssClass: 'alert-danger', timeOut: 3000});
-            this.router.navigate(['/profile/profile-edit']);
+            this.router.navigate(['/profile']);
           }
         });
   }

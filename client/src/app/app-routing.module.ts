@@ -35,7 +35,7 @@ const routes: Routes = [
   {path: 'services', component: ServicesComponent, data: {title: 'Services'}},
 
   {path: 'profile', component: ProfileComponent, data: {title: 'Profile'}},
-  {path: 'profile/profile-edit/edit/:username', component: ProfileEditComponent, data: {title: 'Edit Profile'}, canActivate: [AuthGuard]},
+  {path: 'profile/profile-edit/edit/:id', component: ProfileEditComponent, data: {title: 'Edit Profile'}, canActivate: [AuthGuard]},
 
   {path: 'surveys', component: SurveyComponent, data: {title: 'Survey'}},
   {path: 'survey-title', component: SurveyTitleComponent, data: {title: 'Survey Title'}},

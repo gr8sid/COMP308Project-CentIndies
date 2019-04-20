@@ -37,7 +37,7 @@ module.exports.processLoginPage = (req, res, next) => {
           expiresIn: 604800 // 1 week
       });
 
-      return res.json({success: true, msg: 'User Logged in successfully', user: {
+      return res.json({success: true, msg: 'User Logged in successfully ->' + user._id, user: {
         id: user._id,
         displayName: user.displayName,
         username: user.username,
@@ -51,12 +51,13 @@ module.exports.processLoginPage = (req, res, next) => {
 module.exports.processRegisterPage = (req, res, next) => {
   // define a new user object
   let newUser = new User({
+    
     username: req.body.username,
     //password: req.body.password
     email: req.body.email,
     displayName: req.body.displayName
   });
-
+ 
   User.register(newUser, req.body.password, (err) => {
     if (err) {
       console.log("Error: Inserting New User");
@@ -74,4 +75,3 @@ module.exports.performLogout = (req, res, next) => {
   req.logout();
   res.json({success: true, msg: 'User Successfully Logged Out'});
 };
-

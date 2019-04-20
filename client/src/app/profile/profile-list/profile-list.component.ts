@@ -22,7 +22,6 @@ export class ProfileListComponent implements OnInit {
 
   ngOnInit() {
     this.users = new Array<User>();
-
     this.displayProjectList();
   }
 
