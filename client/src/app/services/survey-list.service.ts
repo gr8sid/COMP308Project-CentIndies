@@ -36,8 +36,6 @@ export class SurveyListService {
   }
 
   public getSurveyList(): Observable<any> {
-    this.loadToken();
-    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
     return this.http.get<any>(this.endpoint, this.httpOptions);
   }
 
@@ -51,14 +49,11 @@ export class SurveyListService {
   }
 
   public addSurvey(survey: Survey): Observable<any> {
-    this.loadToken();
-    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
     return this.http.post<any>(this.endpoint + 'add', survey, this.httpOptions);
   }
 
   public getSurvey(survey: Survey): Observable<any> {
-    this.loadToken();
-    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
+
     return this.http.get<any>(this.endpoint + 'edit/' + survey._id, this.httpOptions);
   }
 

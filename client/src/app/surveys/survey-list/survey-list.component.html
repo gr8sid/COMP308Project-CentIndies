@@ -4,7 +4,7 @@
             <h1 class="display-4" style="color: #CEF0D4; font-family: 'courier', cursive; font-size: 60px; font-weight: normal; line-height: 48px; margin-top:10px; margin-left:200px;  text-align: left; text-shadow: 1px 1px 2px black;"><strong>
             Our SURVEY  List </strong></h1>
             <a *ngIf="title == 'Add to Survey List'" class="btn btn-primary" routerLink="add" role="button">
-            <i class="fas fa-plus-circle"></i> Add a Survey</a>
+            <i class="fas fa-plus-circle"></i> Add Survey Queston</a>
             <br><br>
             <table class="table table-bordered table-striped table-hover">
                 <!-- Header Row-->
@@ -34,7 +34,7 @@
 
                                 <td *ngIf="title == 'Take Survey'" class="text-center" style="width:160px">
                                     <a routerLink="add/{{survey._id}}" class="btn btn-secondary">
-                                      <i class="fas fa-info-circle"></i> Take Survey </a>
+                                      <i class="fas fa-users"></i> Participate </a>
                                     </td>
                     </tr>
             </table>

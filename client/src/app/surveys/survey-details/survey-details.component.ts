@@ -26,14 +26,15 @@ export class SurveyDetailsComponent implements OnInit {
     private flashMessage: FlashMessagesService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { }
+  ) { this.user = JSON.parse(localStorage.getItem('user'));}
 
   ngOnInit() {
     this.title = this.activatedRoute.snapshot.data.title;
-
     this.user = JSON.parse(localStorage.getItem('user'));
-    console.log("This Username -> "+ this.user.username);
-    this.currentUser = this.user.username;
+    if (this.user != null){
+      console.log("MY Logged in USer -.>" + this.user.username);
+      this.currentUser = this.user.username;
+    }
     this.survey = new Survey();
     this.answer = new Answer();
 
@@ -49,7 +50,6 @@ export class SurveyDetailsComponent implements OnInit {
 
   getSurvey(survey: Survey): void {
     this.surveyListService.getSurvey(survey).subscribe(data => {
-
       this.survey = data.survey;
     });
   }

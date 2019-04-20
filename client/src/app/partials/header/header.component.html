@@ -77,14 +77,22 @@
           <a style="font-size:20px" class="nav-link" routerLink="about"><i class="fa fa-lg fa-info"></i> About </a>
         </li>
 
-        <li class="nav-item active">
+        <!-- <li *ngIf="isLoggedIn()"  class="nav-item active">
           <li class="nav-item">
             <a style="font-size:20px" class="nav-link" routerLink="survey-title"><i class="fa fa-lg fa-star"></i>  Surveys</a>
-          </li>
+          </li> -->
+
+          <li style="font-size:20px" *ngIf="!isLoggedIn()" class="nav-item">
+              <a routerLink="/surveys/take-survey" class="nav-link">
+            <i class="fas fa-lg fa-star"></i> Surveys</a></li>
+
+          <li style="font-size:20px" *ngIf="isLoggedIn()" class="nav-item">
+            <a routerLink="survey-title" class="nav-link">
+          <i class="fas fa-lg fa-star"></i> Surveys</a></li>
 
           <li class="nav-item active">
               <li class="nav-item">
-                <a style="font-size:20px" class="nav-link" routerLink="surveys/survey-answers"><i class="fa fa-lg fa-star"></i>  Survey Answers</a>
+                <a style="font-size:20px" *ngIf="isLoggedIn()" class="nav-link" routerLink="surveys/survey-answers"><i class="fa fa-lg fa-star"></i>  Survey Answers</a>
               </li>
 
 
@@ -97,7 +105,8 @@
         <li style="font-size:20px" *ngIf="isLoggedIn()" class="nav-item"><a (click)="onLogoutClick()" routerLink="logout" class="nav-link">
           <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a></li>
 
-        <li style="font-size:20px" *ngIf="!isLoggedIn()" class="nav-item"><a routerLink="login" class="nav-link">
+        <li style="font-size:20px" *ngIf="!isLoggedIn()" class="nav-item"
+        ><a routerLink="login" class="nav-link">
           <i class="fas fa-lg fa-sign-in-alt"></i> Login</a></li>
 
     </ul>

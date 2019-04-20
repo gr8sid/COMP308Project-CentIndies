@@ -1,10 +1,10 @@
-<h1>{{title}}</h1>
+
 <div class="container surveyList">
   <div class="row">
     <div *ngIf="title == 'Survey Title'" class="col-lg-12">
-
+        <h1>Survey List</h1>
       <br />
-      <a class="btn btn-primary" routerLink="/surveys" role="button">
+      <a style="font-size:25px" class="btn btn-primary" routerLink="/surveys/survey-list" role="button">
         <i class="fas fa-plus-circle"></i> Add a Survey</a
       >
 
@@ -15,12 +15,12 @@
         <div *ngFor="let survey of surveys; let i = index">
           <div class="row">
             <div class="col-lg-9">
-              <h2>{{ survey.surveyName }}</h2>
+              <h3>{{ survey.surveyName }}</h3>
             </div>
             <div *ngIf="isMySurvey" class="col-lg-3 buttons"></div>
 
             <div *ngIf="!isMySurvey" class="col-lg-3 buttons">
-              <a routerLink="/surveys/survey-list" class="btn btn-primary">
+              <a style="font-size:20px" routerLink="/surveys" class="btn btn-primary">
                 Participate</a
               > </div>
           </div>
