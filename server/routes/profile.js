@@ -40,10 +40,10 @@ router.get('/',   profileController.displayProfileList);
 
 
 /* GET request - display the Edit page */
-router.get('/edit/:id',    profileController.displayEditPage);
+router.get('/edit/:username',    profileController.displayEditPage);
 
 /* POST request - Update the database with data from the Edit Page */
-router.post('/edit/:id',    profileController.processEditPage);
+router.post('/edit/:username',    profileController.processEditPage);
 
 
 

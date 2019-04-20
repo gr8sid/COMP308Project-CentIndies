@@ -16,6 +16,7 @@ import { Answer } from 'src/app/models/answer';
 export class SurveyDetailsComponent implements OnInit {
   user: User;
   title: string;
+  currentUser: string;
   survey: Survey;
   answer: Answer;
 
@@ -29,13 +30,13 @@ export class SurveyDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.title = this.activatedRoute.snapshot.data.title;
+
+    this.user = JSON.parse(localStorage.getItem('user'));
+    console.log("This Username -> "+ this.user.username);
+    this.currentUser = this.user.username;
     this.survey = new Survey();
     this.answer = new Answer();
-   // this.user = new User();
-    this.user = JSON.parse(localStorage.getItem('user'));
-    console.log(this.user.username);
 
-    // fills in the survey._id property from the url
     this.activatedRoute.params.subscribe(params => {
       this.survey._id = params.id;
     });
@@ -56,6 +57,7 @@ export class SurveyDetailsComponent implements OnInit {
   onSurveyDetailsSubmit(): void {
     switch (this.title) {
       case 'Add Survey':
+        this.survey.owner = this.user.username;
         this.surveyListService.addSurvey(this.survey).subscribe(data => {
           if (data.success) {
             this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeOut: 3000});
@@ -80,7 +82,6 @@ export class SurveyDetailsComponent implements OnInit {
         break;
     }
   }
-
 
   onAnswerSubmit(): void {
     switch (this.title) {

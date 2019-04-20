@@ -1,64 +1,59 @@
-
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Sign Up Form by Colorlib</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
 
 
-</head>
-<body>
+  </head>
+  <body>
 
-  <div class="main">
       <div class="container">
-          <div class="booking-content">
-              <div class="booking-image">
-                  <img class="booking-img"
-                  src="assets/images/surveybg.jpg"
-                  alt="Booking Image"
-                  style="margin-top:10px;height:490px; width:635px">
+          <div class="jumbotron">
 
+              <img src="assets/images/surveybg.jpg" class="img-fluid" alt="Responsive image">
 
-              </div>
+              <h1 class="display-4"> Please Login</h1>
+              <hr class="my-4">
               <div class="booking-form" style="margin-top:10px; margin-bottom:10px; font-size:20px">
-                <form autocomplete="off" (submit)="onLoginSubmit()">
-                    <h1>Please Login</h1>
+                  <form autocomplete="off" (submit)="onLoginSubmit()">
+                          <fieldset class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control"
+                            [(ngModel)]="user.username"
+                            name="username" placeholder="Enter Username"
+                            id="username" required autofocus autocomplete="off">
+                        </fieldset>
                         <fieldset class="form-group">
-                          <label for="username">Username:</label>
-                          <input type="text" class="form-control"
-                          [(ngModel)]="user.username"
-                          name="username" placeholder="Enter Username"
-                          id="username" required autofocus autocomplete="off">
-                      </fieldset>
-                      <fieldset class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control"
-                        [(ngModel)]="user.password"
-                        name="password" placeholder="Enter Password"
-                        id="password" required autocomplete="off">
+                          <label for="password">Password:</label>
+                          <input type="password" class="form-control"
+                          [(ngModel)]="user.password"
+                          name="password" placeholder="Enter Password"
+                          id="password" required autocomplete="off">
 
+
+                      </fieldset>
+
+                      <div class="form-submit">
+                      <fieldset class="form-group text-right">
+
+                          <button type="submit" class="btn btn-success" style="float:left">
+                            <i class="fas fa-sign-in-alt"></i> Login </button>
+
+                         <button type="reset" class="btn btn-danger" value="reset" style="float:right" >
+                            <i class="fa fa-times-circle"></i> Reset</button>
 
                     </fieldset>
+                    or,
+                            <a routerLink="/register">Register Here</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-                    <div class="form-submit">
-                    <fieldset class="form-group text-right">
-                      <input type="submit" class="btn btn-success" style="float:left; " value="Login" class="submit" id="submit" name="submit">
-                      <a routerLink="/home">
-                          <input type="button" value="Cancel" class="submit" id="cancel" name="cancel" style="float:right;">
-                      </a>
-                  </fieldset>
-                  or,
-                          <a routerLink="/register">Register Here</a>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
 
-  </div>
-
-  <!-- JS -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="js/main.js"></script>
-</body>
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>

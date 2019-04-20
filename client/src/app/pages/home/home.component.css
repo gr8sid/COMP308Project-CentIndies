@@ -1,0 +1,9 @@
+body{
+  background-image: url("../../../assets/images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+ }
+
+ .jumbotron{
+opacity: 0.9;
+ }

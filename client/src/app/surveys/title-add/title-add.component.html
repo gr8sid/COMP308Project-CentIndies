@@ -1,0 +1,25 @@
+<p>
+  title-add works!
+</p>
+
+
+<div *ngIf= "title == 'Survey Title Add'" class="col-lg-12">
+{{ title }}
+    <br>
+    <form class="form" (submit)="onSurveyTitleSubmit()">
+
+        <div class="form-group">
+            <label for="SurveyNameTextField">Survey Name</label>
+            <input type="text" class="form-control"
+            id="SurveyNameTextField"
+            placeholder="Enter Survey Name"
+            name="surveyName"
+
+            required>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-edit"></i> {{ title }}</button>
+            <a routerLink="/surveys/survey-title" class="btn btn-warning">
+                <i class="fas fa-undo"></i> Cancel</a>
+        </form>
+  </div>

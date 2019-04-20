@@ -6,16 +6,10 @@ let passport = require('passport');
 
 let answerController = require('../controllers/answer');
 
-function requireAuth(req, res, next) {
-    // check if the user is logged in
-    if(!req.isAuthenticated()) {
-        return res.redirect('/login');
-    }
-    next();
-}
 
 /* GET Contact List page - READ Operation */
 router.get('/',    answerController.displayAnswerList);
+router.get('/answer-list',    answerController.displayAnswerList);
 
 /* GET Route for the Add page 
    this will display the Add page */

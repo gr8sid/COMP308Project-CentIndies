@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 import { Survey } from '../models/survey';
 import { User } from '../models/user';
-import { Answer } from '../models/answer';
+import { SurveyTitle } from '../models/surveyTitle';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +18,8 @@ export class SurveyListService {
   //private endpoint = 'https://comp308-w2019-lesson10a.herokuapp.com/api/contact-list/';
 
   private endpoint = 'http://localhost:3000/api/survey-list/';
+  private endpoint2 = 'http://localhost:3000/api/answer-list/';
+  private endpoint3 = 'http://localhost:3000/api/survey-title/';
 
  // private endpoint = 'https://expres-portfolio-meanstack-sid.herokuapp.com/api/survey-list/';
 
@@ -37,6 +39,15 @@ export class SurveyListService {
     this.loadToken();
     this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
     return this.http.get<any>(this.endpoint, this.httpOptions);
+  }
+
+  public getAnswerList(): Observable<any> {
+   return this.http.get<any>(this.endpoint2, this.httpOptions);
+  }
+
+  public getMySurvey(username: string): Observable<any> {
+    this.loadToken();
+    return this.http.get<any>(this.endpoint + username, this.httpOptions);
   }
 
   public addSurvey(survey: Survey): Observable<any> {
@@ -67,6 +78,17 @@ export class SurveyListService {
     this.loadToken();
     this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
     return this.http.get<any>(this.endpoint + 'delete/' + survey._id, this.httpOptions);
+  }
+
+  public getSurveyTitleList(): Observable<any> {
+    this.loadToken();
+    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
+    return this.http.get<any>(this.endpoint3, this.httpOptions);
+   }
+  public addSurveyTitle(surveyTitle: SurveyTitle): Observable<any> {
+    this.loadToken();
+    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
+    return this.http.post<any>(this.endpoint3 + 'add', surveyTitle, this.httpOptions);
   }
 
   public loadToken() {

@@ -17,6 +17,10 @@ function requireAuth(req, res, next) {
 /* GET Contact List page - READ Operation */
 router.get('/',    surveyController.displaySurveyList);
 
+ //router.get('/survey-title',    surveyController.displayAddSurveyTitle);
+// router.post('/surveyTitle/add',    surveyController.addSurveyTitle);
+
+
 /* GET Route for the Add page 
    this will display the Add page */
 router.get('/add',    surveyController.displayAddPage);

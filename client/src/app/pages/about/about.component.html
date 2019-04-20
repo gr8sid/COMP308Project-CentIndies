@@ -17,10 +17,19 @@ Date: 16 Feb, 2019
 
 
   </head>
-  <body>
-    <div class="main">
-      <div class="container">
-      <h1>Work in progress..</h1>
-    </div>
+  <body style="height:100%">
+    <br><br><br><br><br>
+      <div class="container" style="background-image: url('assets/images/bg.jpg')">
+          <div class="jumbotron"><br>
+              <h1 class="display-4">About US</h1><br>
+      <p class="lead">Welcome to our free ONLINE creating and responding servey site. This site is brought you by COMP308-W2019.Feel free to answer the questions of the survey and create if you want someone's opinion.
+        we believe that "At its core, our research agency is based on the belief that the best decisions are data driven. That true understanding comes from information, analysis and insight.  And that to thrive in the ever-changing environment we operate in, organisations need to use feedback to drive their strategy and service offering" </p>
+
+       <div *ngIf="!isLoggedIn()">
+          <p class="lead">Ready to take a survey? </p>
+         <a  class="btn btn-primary btn-lg" routerLink="/login" role="button"> Click To Login </a>
+      </div>
+      <br><br><br><br><br>
+        </div>
   </div>
 </body>

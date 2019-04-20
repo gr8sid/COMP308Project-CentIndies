@@ -28,6 +28,7 @@ module.exports.displayEditPage = (req, res, next) => {
         }
         else
         {
+            console.log(profileObject);
             res.json({success: true, msg: 'Successfully Displayed Profile to Edit', profile: profileObject});
         }
     });
@@ -53,5 +54,4 @@ module.exports.processEditPage = (req, res, next) => {
         }
     })
 }
-
 

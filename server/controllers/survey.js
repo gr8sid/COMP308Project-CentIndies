@@ -4,7 +4,11 @@ let jwt = require('jsonwebtoken');
 
 // create a reference to the db schema
 let surveyModel = require('../models/survey');
+let surveyTitleModel = require('../models/surveyTitle');
 let answerModel = require('../models/answer');
+
+let userModel = require("../models/user");
+let User = userModel.User;
 
 module.exports.displaySurveyList = (req, res, next) =>{
     surveyModel.find((err, surveyList) => {
@@ -100,6 +104,28 @@ module.exports.performDelete = (req, res, next) => {
         }
     });
 
+    // Adding Survey Title 
+
+    module.exports.displayAddSurveyTitle = (req, res, next) => {
+        res.json({success: true, msg: 'Successfully Displayed Survey |Title Add Page'});
+     }
+
+    module.exports.addSurveyTitle = (req, res, next) => {
+
+        let newSurveyTitle = surveyTitleModel({
+            "surveyName": req.body.surveyName
+        });
+    
+        surveyTitleModel.create(newSurveyTitle, (err, surveyTitleModel) => {
+            if(err) {
+                console.log(err);
+                res.end(err);
+            }
+            else {
+                res.json({success: true, msg: 'Successfully Added New Survey Title'});
+            }
+        });
+    }
 
 
 

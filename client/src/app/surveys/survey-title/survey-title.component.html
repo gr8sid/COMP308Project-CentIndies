@@ -1,0 +1,32 @@
+<h1>{{title}}</h1>
+<div class="container surveyList">
+  <div class="row">
+    <div *ngIf="title == 'Survey Title'" class="col-lg-12">
+
+      <br />
+      <a class="btn btn-primary" routerLink="/surveys" role="button">
+        <i class="fas fa-plus-circle"></i> Add a Survey</a
+      >
+
+      <br /><br />
+      <div class="">
+        <hr />
+
+        <div *ngFor="let survey of surveys; let i = index">
+          <div class="row">
+            <div class="col-lg-9">
+              <h2>{{ survey.surveyName }}</h2>
+            </div>
+            <div *ngIf="isMySurvey" class="col-lg-3 buttons"></div>
+
+            <div *ngIf="!isMySurvey" class="col-lg-3 buttons">
+              <a routerLink="/surveys/survey-list" class="btn btn-primary">
+                Participate</a
+              > </div>
+          </div>
+          <hr />
+        </div>
+</div>
+</div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-11">
+            <h1 class="display-4" style="color: #CEF0D4; font-family: 'courier', cursive; font-size: 60px; font-weight: normal; line-height: 48px; margin-top:10px; margin-left:200px;  text-align: left; text-shadow: 1px 1px 2px black;"><strong>
+            Survey Answers List </strong></h1>
+            <br><br>
+            <table class="table table-bordered table-striped table-hover">
+                <!-- Header Row-->
+                <tr>
+                    <th class="text-center">Survey Name</th>
+                    <th class="text-center">Survey Question</th>
+                    <th class="text-center">Answer</th>
+                    <th *ngIf="title == 'Add to Survey List'" class="text-center"></th>
+                </tr>
+
+                <!-- Repeatable Template Row -->
+                    <tr *ngFor="let ans of answers">
+                        <td class="text-center">{{ans.surveyName}}</td>
+                        <td class="text-center">{{ans.question}}</td>
+                        <td class="text-center">{{ans.answer}}</td>
+                    </tr>
+            </table>
+
+        </div>
+    </div>
+  </div>

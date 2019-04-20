@@ -16,6 +16,7 @@ export class AnswerService {
   //private endpoint = 'https://comp308-w2019-lesson10a.herokuapp.com/api/contact-list/';
 
   private endpoint = 'http://localhost:3000/api/take-survey/';
+  private endpoint2 = 'http://localhost:3000/api/take-survey/answer-list/';
 
  // private endpoint = 'https://expres-portfolio-meanstack-sid.herokuapp.com/api/survey-list/';
 
@@ -23,7 +24,7 @@ export class AnswerService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+      'Access-Control-Allow-Headers': '*'
     })
   };
 
@@ -31,33 +32,21 @@ export class AnswerService {
     this.user = new User();
   }
 
-  public getSurveyList(): Observable<any> {
-    this.loadToken();
-    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
-    return this.http.get<any>(this.endpoint, this.httpOptions);
-  }
+  public getAnswerList(): Observable<any> {
+    return this.http.get<any>(this.endpoint2);
+   }
 
   public addAnswer(ans: Answer, survey: Survey): Observable<any> {
-    this.loadToken();
-    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
-    return this.http.post<any>(this.endpoint + 'add/' + survey._id, ans, this.httpOptions);
+    // this.loadToken();
+    // this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
+    return this.http.post<any>(this.endpoint + 'add/' + survey._id, ans);
 }
-  public getSurvey(survey: Survey): Observable<any> {
-    this.loadToken();
-    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
-    return this.http.get<any>(this.endpoint + 'edit/' + survey._id, this.httpOptions);
-  }
 
-  public surveyDetails(survey: Survey): Observable<any> {
-    this.loadToken();
-    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
-    return this.http.post<any>(this.endpoint + 'details/' + survey._id, survey, this.httpOptions);
-  }
 
-  public loadToken() {
-    const token = localStorage.getItem('id_token');
-    this.authToken = token;
-  }
+  // public loadToken() {
+  //   const token = localStorage.getItem('id_token');
+  //   this.authToken = token;
+  // }
 
 
 }

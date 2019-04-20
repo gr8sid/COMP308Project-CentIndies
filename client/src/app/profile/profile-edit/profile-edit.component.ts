@@ -58,3 +58,31 @@ export class ProfileEditComponent implements OnInit {
         });
   }
   }
+
+  /*
+// Update an existing User profile in the users collection
+module.exports.UpdateProfile = (req, res) => {
+  // get a reference to the id from the url
+  let id = req.user._id;
+
+  let updatedProfile = User({
+    "_id": id,
+    "email": req.body.email,
+    "username": req.body.username,
+    "displayName": req.body.displayName
+  });
+  //  req.body.password,
+
+  User.update({
+    _id: id
+  }, updatedProfile, (err) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      // refresh the survey List
+      res.redirect('/surveys/mySurveys');
+    }
+  });
+
+  */
