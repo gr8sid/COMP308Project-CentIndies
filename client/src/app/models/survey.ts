@@ -9,5 +9,7 @@ export class Survey {
   option2: string;
   option3: string;
   option4: string;
+  StartDate: Date;
+  ExpiryDate: Date;
 
 }
