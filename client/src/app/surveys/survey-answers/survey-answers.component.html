@@ -8,7 +8,11 @@
             <h1 class="display-4" style="color: #CEF0D4; font-family: 'courier', cursive; font-size: 60px; font-weight: normal; line-height: 48px; margin-top:10px; margin-left:200px;  text-align: left; text-shadow: 1px 1px 2px black;"><strong>
             Survey Answers List </strong></h1>
             <br><br>
-            <table class="table table-bordered table-striped table-hover">
+            <button type="button" (click)="captureScreen()" class="btn btn-success" style="margin-top:10px; font-size:25px">
+              <i class="fas fa-download"></i> Generate Report</button><br><br>
+
+
+            <table class="table table-bordered table-striped table-hover" id="contentToConvert">
                 <!-- Header Row-->
                 <tr>
                     <th class="text-center">Survey Name</th>
@@ -31,4 +35,7 @@
   </div>
         </div>
     </div>
+
+
+
 </body>
